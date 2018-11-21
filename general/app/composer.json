@@ -1,0 +1,24 @@
+{
+    "name": "root/app",
+    "require": {
+        "fzaninotto/faker": "^1.8",
+        "rakit/validation": "^0.22.3"
+    },
+
+    "autoload": {
+        "files": [
+            "config/config.php"
+        ],
+        "psr-4": {
+            "Classes\\": "classes/"
+        }
+
+    },
+
+    "authors": [
+        {
+            "name": "Anna Belova",
+            "email": "Belka9a128@gmail.com"
+        }
+    ]
+}
