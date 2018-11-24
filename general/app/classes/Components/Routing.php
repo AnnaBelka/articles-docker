@@ -40,7 +40,6 @@ class Routing
 
 
         foreach ($this->routes as $uriPattern => $path) {
-
             if (preg_match("~$uriPattern~", $this->uri)) {
 
                 $internalRoute = preg_replace("~$uriPattern~", $path, $this->uri);
@@ -55,7 +54,6 @@ class Routing
                 $controller = new $this->controller();
 
                 $result = call_user_func_array(array($controller, $this->method), $this->parameters);
-
                 if ($result != null) {
                     break;
                 }

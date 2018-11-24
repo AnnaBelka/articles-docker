@@ -91,15 +91,16 @@ class GenerationDump
 
     public function generationArticles()
     {
-        echo 'start';
+/*        echo 'start=';
         $start =  time();
-        echo $start;
+        echo $start;*/
         $column = $this->db->query("SELECT MAX(`id`) FROM `articles`");
         $lastid = $column->fetchColumn();
-        var_dump($lastid);
+/*        var_dump($lastid);
+        echo '<br>';*/
 
         if ($lastid <=500000) {
-            for ($i = 1; $i<=100000; $i++) {
+            for ($i = 1; $i <= 100000; $i++) {
 
                 $width = rand(200, 800);
                 $height = rand(200, 800);
@@ -117,25 +118,29 @@ class GenerationDump
 
                 $title = $this->faker->realText($maxNbCharsTitle, $indexSize);
                 $description = $this->faker->realText($maxNbCharsDescription, $indexSize);
-                $author_id = rand(1, 5000);
-                $topic_id = rand(1, 36);
+                $author_id = rand(1, 4999);
+                $topic_id = rand(1, 35);
 
                 $created_at = $dateTime->format('Y-m-d H:i:s');
                 $image = $this->faker->imageUrl($width, $height, $category);
-                $count_views = rand(1, 537);
+                $count_views = rand(1, 100);
 
                 $query = "INSERT INTO `articles` (`title`, `author_id`, `topic_id`, `description`,`created_at`, `image`, `count_views`) VALUES ('$title', '$author_id', '$topic_id', '$description', '$created_at', '$image', '$count_views')";
 
                 $this->db->exec($query);
             }
         }
-        echo '$i '. $i;
-        echo 'end ';
+/*        echo '$i = '. $i;
+        echo '<br>';
+        echo '$id = '. $this->db->lastInsertId() ;
+        echo '<br>';
+        echo 'end = ';
         $end = time();
         echo $end;
+        echo '<br>';
 
-        echo 'time ';
-        echo $end - $start;
+        echo 'time = ';
+        echo $end - $start;*/
     }
 
     public function countArticles()

@@ -2,24 +2,15 @@
 
 namespace Classes\Models;
 
-use Classes\Components\DataBase;
-
-abstract class Model
+interface Model
 {
-    private $table;
-    private $db;
 
-    public function __construct()
-    {
-        $this->db = DataBase::connect();
-    }
+    public function create();
 
-    abstract public function create();
+    public function read(int $id);
 
-    abstract public function read();
+    public function edit();
 
-    abstract public function edit();
-
-    abstract public function delete();
+    public function delete();
 
 }
