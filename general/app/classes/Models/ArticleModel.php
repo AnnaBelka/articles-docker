@@ -3,7 +3,7 @@
 namespace Classes\Models;
 
 
-abstract class ArticleModel
+abstract class ArticleModel extends Model
 {
     protected $id;
     protected $title;
@@ -14,7 +14,12 @@ abstract class ArticleModel
     protected $created_at;
     protected $count_views;
 
-    public function getId() : int
+    /*public function __construct()
+    {
+        parent::__construct();
+    }*/
+
+    /*public function getId() : int
     {
         return $this->id;
     }
@@ -92,7 +97,7 @@ abstract class ArticleModel
     public function setCountViews(int $count_views) : int
     {
         $this->count_views = $count_views;
-    }
+    }*/
 
     abstract public function count(array $filter) : int;
 }

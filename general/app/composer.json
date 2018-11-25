@@ -3,7 +3,8 @@
     "require": {
         "fzaninotto/faker": "^1.8",
         "rakit/validation": "^0.22.3",
-        "jasongrimes/paginator": "~1.0"
+        "jasongrimes/paginator": "~1.0",
+        "illuminate/database": "^5.7"
     },
 
     "autoload": {

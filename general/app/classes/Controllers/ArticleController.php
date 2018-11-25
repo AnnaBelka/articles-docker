@@ -9,12 +9,16 @@ use Classes\Models\Author;
 class ArticleController extends Controller
 {
     private $article;
+    private $author;
     private $itemsPerPage = 20;
 
     public function __construct()
     {
-        $this->article = new Article();
         parent::__construct();
+
+        $this->article = new Article();
+        $this->author = new Author();
+
     }
 
     public function getArticles(int $currentPage = 1)
@@ -25,6 +29,9 @@ class ArticleController extends Controller
             'itemsPerPage' => $this->itemsPerPage,
         ];
         $articles = $this->article->readByFilter($filter);
+
+        $authors = $this->author->readByFilter(['sort' => 'lastname ASC']);
+//        var_dump($authors);
 
         return $articles;
     }
@@ -37,7 +44,7 @@ class ArticleController extends Controller
 //        var_dump($id);
 //        $count = $this->article->count();
         $article = $this->article->read($id);
-        var_dump($article);
+
         return $article;
 //        var_dump($validation->fails());
         /*if ($validation->fails()) {

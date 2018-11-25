@@ -26,6 +26,7 @@ services:
       working_dir: /app
       volumes:
       - ./app:/app
+      - ./config/my.cnf:/etc/mysql/my.cnf
       environment:
       - MYSQL_ROOT_PASSWORD=secret
       - MYSQL_DATABASE=articles

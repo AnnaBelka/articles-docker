@@ -2,21 +2,20 @@
 
 namespace Classes\Models;
 
-use Classes\Components\DataBase;
+
 use Classes\Components\Paginator;
 use PDO;
 
-class Article extends ArticleModel implements Model
+class Article extends ArticleModel
 {
 
     protected $table = '`articles`';
-    protected $db;
 
 
-    public function __construct()
+    /*public function __construct()
     {
-        $this->db = DataBase::connect();
-    }
+        parent::__construct();
+    }*/
 
 
     public function create()
@@ -26,7 +25,7 @@ class Article extends ArticleModel implements Model
 
     public function readByFilter(array $filter) :array
     {
-        $articles = array();
+        /*$articles = array();
         $currentPage = $filter['currentPage'];
         $itemsPerPage = $filter['itemsPerPage'];
 
@@ -47,43 +46,22 @@ class Article extends ArticleModel implements Model
         $statement->bindValue(2, $itemsPerPage, PDO::PARAM_INT);
         $statement->execute();
         $statement->setFetchMode(PDO::FETCH_CLASS, self::class);
+        $articles = $statement->fetchAll();
 
-        while($row = $statement->fetch()) {
-            $article = new Article();
-            $article->id = $row->getId();
-            $article->title = $row->getTitle();
-            $article->author_id = $row->getAuthorId();
-            $article->topic_id = $row->getTopicId();
-            $article->description = $row->getDescription();
-            $article->image = $row->getImage();
-            $article->created_at = $row->getCreatedAt();
-            $article->count_views = $row->getCountViews();
-            $articles[$article->id] = $article;
-        }
-
-        return $articles;
+        return $articles;*/
     }
 
     public function read(int $id) : Article
     {
-        $article = new Article();
-        $statement = $this->db->prepare("SELECT * FROM $this->table WHERE id = :id LIMIT 1");
+
+        /*$statement = $this->db->prepare("SELECT * FROM $this->table WHERE id = :id LIMIT 1");
         $statement->setFetchMode(PDO::FETCH_CLASS, self::class);
         $statement->execute([
             ':id' => $id
         ]);
-
-        while($row = $statement->fetch()) {
-            $article->id = $row->getId();
-            $article->title = $row->getTitle();
-            $article->author_id = $row->getAuthorId();
-            $article->topic_id = $row->getTopicId();
-            $article->description = $row->getDescription();
-            $article->image = $row->getImage();
-            $article->created_at = $row->getCreatedAt();
-            $article->count_views = $row->getCountViews();
-        }
-        return $article;
+        $article = $statement->fetch();
+var_dump($article);
+        return $article;*/
 
     }
 
@@ -99,7 +77,7 @@ class Article extends ArticleModel implements Model
 
     public function count(array $filter = array()) : int
     {
-        $column = $this->db->query("SELECT count(`id`) FROM $this->table");
-        return $column->fetchColumn();
+        /*$column = $this->db->query("SELECT count(`id`) FROM $this->table");
+        return $column->fetchColumn();*/
     }
 }
