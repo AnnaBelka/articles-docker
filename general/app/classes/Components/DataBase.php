@@ -3,6 +3,8 @@
 namespace Classes\Components;
 
 use Illuminate\Database\Capsule\Manager as Capsule;
+use Illuminate\Events\Dispatcher;
+use Illuminate\Container\Container;
 
 class DataBase
 {
@@ -22,11 +24,19 @@ class DataBase
             "prefix" => "",
         ]);
 
+
+        //$capsule->setEventDispatcher(new Dispatcher(new Container));
+
+        $capsule->setAsGlobal();
+
         $capsule->bootEloquent();
+
     }
 
     /*public static function connect()
     {
+
+
         $env = include( __DIR__ . '/../../config/config.php');
         $dsn = "mysql:host={$env['db_host']};dbname={$env['db_name']};port={$env['db_port']}";
 

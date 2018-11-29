@@ -24,7 +24,7 @@ class GenerationDump
 //        $this->generationAuthors();
 //        $this->generationTopics();
 //        $this->countArticles();
-        $this->generationArticles();
+//        $this->generationArticles();
     }
 
     public function createTableArticles()
@@ -35,7 +35,7 @@ class GenerationDump
               `author_id` int(11) NOT NULL DEFAULT '0',
               `topic_id` int(11) NOT NULL DEFAULT '0',
               `description` text NOT NULL,
-              `created_at` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
+              `created_at` date NOT NULL,
               `image` varchar(255) NOT NULL DEFAULT '',
               `count_views` int(11) NOT NULL DEFAULT '1',
               PRIMARY KEY (`id`),

@@ -2,54 +2,55 @@
 
 namespace Classes\Models;
 
+use \Illuminate\Database\Eloquent\Model;
 
-//use PDO;
-
-class Author extends AuthorModel
+abstract class Author extends Model
 {
-    private $table = '`authors`';
+/*    protected $id;
+    protected $name;
+    protected $lastname;*/
+    protected $table = "authors";
+    protected $fillable = array("name", "lastname");
 
+    public function articles() {
+        return $this->hasMany('Classes\Models\Article');
+    }
     /*public function __construct()
     {
         parent::__construct();
-    }*/
-
-    public function create()
-    {
-
     }
 
-    public function readByFilter(array $filter) :array
+    public function getId() : int
     {
-
-        /*$orderBy = $filter['sort'];
-        $statement = $this->db->prepare("SELECT * FROM $this->table ORDER BY ?");
-        $statement->execute([$orderBy]);
-        $statement->setFetchMode(PDO::FETCH_CLASS, self::class);
-        $authors = $statement->fetchAll();
-var_dump($authors);
-        return $authors;*/
+        return $this->id;
     }
 
-    public function read(int $id) :int
+    public function setId(int $id) : int
     {
-
-    }
-
-    public function edit()
-    {
-
-    }
-
-    public function delete()
-    {
-
+        $this->id = $id;
     }
 
 
-    public function count(array $filter = array()) : int
+    public function setName(string $name) : string
     {
-        /*$column = $this->db->query("SELECT count(`id`) FROM $this->table");
-        return $column->fetchColumn();*/
+        $this->name = $name;
     }
+
+    public function getName() : string
+    {
+        return $this->name;
+    }
+
+    public function setLastName(string $lastname) : string
+    {
+        $this->lastname = $lastname;
+    }
+
+    public function getLastName() : string
+    {
+        return $this->lastname;
+    }
+    */
+    abstract public function count(array $filter) : int;
+
 }

@@ -2,22 +2,26 @@
 
 namespace Classes\Controllers;
 
+use Classes\Services\ArticleService;
+use Classes\Services\AuthorService;
+use Classes\Services\TopicService;
 use Rakit\Validation\Validator;
-use Classes\Models\Article;
-use Classes\Models\Author;
+
 
 class ArticleController extends Controller
 {
     private $article;
     private $author;
+    private $topic;
     private $itemsPerPage = 20;
 
     public function __construct()
     {
         parent::__construct();
 
-        $this->article = new Article();
-        $this->author = new Author();
+        $this->article = new ArticleService();
+        $this->author = new AuthorService();
+        $this->topic = new TopicService();
 
     }
 
@@ -28,12 +32,15 @@ class ArticleController extends Controller
             'currentPage' => $currentPage,
             'itemsPerPage' => $this->itemsPerPage,
         ];
-        $articles = $this->article->readByFilter($filter);
+    /*    $articles = $this->article->getAllArticle($filter);
 
-        $authors = $this->author->readByFilter(['sort' => 'lastname ASC']);
+        $tagsAuthors = $this->author->getAllAuthorsOrderBy('lastname', 'ASC');
+        $countArticles = $this->article->getCountArticlesId('count','DESC');
+        $tagsTopics = $this->topic->getAllSortByCountArticles($countArticles);*/
+        $dateArticles = $this->article->getDateArticles();
 //        var_dump($authors);
 
-        return $articles;
+        return/* $articles*/;
     }
     public function getArticle(int $id)
     {
@@ -43,7 +50,7 @@ class ArticleController extends Controller
         ]);*/
 //        var_dump($id);
 //        $count = $this->article->count();
-        $article = $this->article->read($id);
+        $article = $this->article->getArticleById($id);
 
         return $article;
 //        var_dump($validation->fails());

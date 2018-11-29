@@ -2,15 +2,11 @@
 
 namespace Classes\Models;
 
-use Classes\Components\DataBase;
-
 class Model
 {
-    /*public $db;
 
-    public function __construct(){
-        $this->db = DataBase::connect();
-    }*/
+    protected $table;
+    protected $fillable;
 
     public function create(){}
 
