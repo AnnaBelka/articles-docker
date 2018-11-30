@@ -1,0 +1,29 @@
+app_extra:
+  resource: .
+  type: extra
+admin_routes:
+  resource: 'admin_route_loader:loadRoutes'
+  type: service
+
+route1:
+    path:     /create-data-base
+    defaults: { _controller: 'GenerationDump::index' }
+route2:
+    path:     /
+    defaults: { _controller: 'ArticleController::getArticles' }
+route3:
+    path:     /articles/{id<\d+>?}
+    defaults: { _controller: 'ArticleController::getArticle' }
+
+route4:
+    path:     /admin/articles
+    defaults: { _controller: 'AdminArticleController::getArticles' }
+route5:
+    path:     /admin/articles/edit/{id<\d+>?}
+    defaults: { _controller: 'ArticleController::updateArticle' }
+route6:
+    path:     /admin/articles/create
+    defaults: { _controller: 'AdminArticleController::createArticle' }
+route7:
+    path:     /admin/articles/delete/{id<\d+>?}
+    defaults: { _controller: 'AdminArticleController::deleteArticle' }

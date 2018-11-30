@@ -11,4 +11,4 @@ $db = new DataBase();
 
 $route = new Routing();
 
-$route->run($routes);
+//$route->run($routes);

@@ -5,7 +5,11 @@
         "rakit/validation": "^0.22.3",
         "jasongrimes/paginator": "~1.0",
         "illuminate/database": "^5.7",
-        "illuminate/pagination": "^5.7"
+        "illuminate/pagination": "^5.7",
+        "symfony/http-foundation": "^4.1",
+        "symfony/routing": "^4.1",
+        "symfony/yaml": "^4.1",
+        "symfony/config": "^4.1"
     },
 
     "autoload": {
