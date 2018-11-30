@@ -1,6 +1,12 @@
 <?php
 
 namespace Classes\Components;
+use Symfony\Component\HttpFoundation\Request;
+use Symfony\Component\HttpFoundation\Response;
+use Symfony\Component\Routing\Matcher\UrlMatcher;
+use Symfony\Component\Routing\RequestContext;
+use Symfony\Component\Routing\RouteCollection;
+use Symfony\Component\Routing\Route;
 
 class Routing
 {
@@ -11,7 +17,36 @@ class Routing
     private $method;
     private $parameters;
 
-    public function __construct(){}
+    public function __construct(){
+
+        $request = Request::createFromGlobals();
+
+//        var_dump($request);
+
+        $routes = new AdvancedLoader();
+        $rout = $routes->load($request);
+        $route = new Route('/foo', array('_controller' => 'MyController'));
+//        var_dump($route);
+//        $routes->add('route_name', $route);
+
+        $context = new RequestContext('/');
+
+        $context->fromRequest($request);
+
+        $matcher = new UrlMatcher($routes, $context);
+
+        $parameters = $matcher->match('/foo');
+
+        $response = new Response();
+        $response->setContent('This will be the response content');
+        $response->headers->set('Content-Type', 'text/html');
+        $response->setStatusCode(200);
+
+        // отправка ответа Response
+        $response->prepare($request);
+        $response->send();
+    }
+
 
     private function getUri()
     {
