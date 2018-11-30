@@ -1,33 +1,36 @@
 <?php
 
-namespace Classes\Components;
+namespace Classes\Migrations;
 
+use Classes\Controllers\Controller;
+use Classes\Migrations\Seeders\ArticlesTableSeeder;
+
+use Classes\Migrations\Seeders\TopicsTableSeeder;
 use Faker\Factory;
 
-class GenerationDump
+class GenerationDump extends Controller
 {
-    protected $db;
+    public $db;
     protected $faker;
 
 
     public function __construct()
     {
-        $this->db = DataBase::connect();
-        $this->faker = Factory::create("ru_RU");
+        parent::__construct();
     }
 
     public function index()
     {
-//        $this->createTableAuthors();
-//        $this->createTableTopics();
-//        $this->createTableArticles();
-//        $this->generationAuthors();
-//        $this->generationTopics();
-//        $this->countArticles();
-//        $this->generationArticles();
+
+        $seederTopics = new TopicsTableSeeder();
+        $seederTopics->run();
+        /*$seederAuthors = new AuthorsTableSeeder();
+        $seederAuthors->run();*/
+        $seederAuthors = new ArticlesTableSeeder();
+        $seederAuthors->run();
     }
 
-    public function createTableArticles()
+    /*public function createTableArticles()
     {
         $query = "CREATE TABLE `articles` (
               `id` int(11) NOT NULL AUTO_INCREMENT,
@@ -91,13 +94,13 @@ class GenerationDump
 
     public function generationArticles()
     {
-/*        echo 'start=';
+        echo 'start=';
         $start =  time();
-        echo $start;*/
+        echo $start;
         $column = $this->db->query("SELECT MAX(`id`) FROM `articles`");
         $lastid = $column->fetchColumn();
-/*        var_dump($lastid);
-        echo '<br>';*/
+        var_dump($lastid);
+        echo '<br>';
 
         if ($lastid <=500000) {
             for ($i = 1; $i <= 100000; $i++) {
@@ -130,7 +133,7 @@ class GenerationDump
                 $this->db->exec($query);
             }
         }
-/*        echo '$i = '. $i;
+        echo '$i = '. $i;
         echo '<br>';
         echo '$id = '. $this->db->lastInsertId() ;
         echo '<br>';
@@ -140,7 +143,7 @@ class GenerationDump
         echo '<br>';
 
         echo 'time = ';
-        echo $end - $start;*/
+        echo $end - $start;
     }
 
     public function countArticles()
@@ -149,5 +152,5 @@ class GenerationDump
         $count = $column->fetchColumn();
         print_r($count);
 
-    }
+    }*/
 }

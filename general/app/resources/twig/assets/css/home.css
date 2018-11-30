@@ -1,0 +1,286 @@
+.home-header{
+    width: 100%;
+    color: #fff;
+    text-align: center;
+    background: url('../../assets/images/bg-1.jpg');
+    background-position: center 35%;
+    background-size: cover;
+    font-weight: bold;
+    padding: 25px 0;
+    position: relative;
+}
+
+/*.home-header:before{
+content: "";
+position: absolute;
+width: 100%;
+height: 100%;
+background: url('../../images/b-g.png');
+background-size: cover;
+background-position: bottom;
+bottom: 0;
+left: 0;
+z-index: 1;
+}*/
+
+.home-header:after{
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 40, 70, 0.35);
+}
+
+.home-header-content{
+    max-width: 887px;
+    margin: 0 auto;
+    position: relative;
+    z-index: 1;
+}
+
+.home-header-content h1{
+    font-size: 36px;
+    margin: 0;
+    font-weight: 900;
+    line-height: 72px;
+    /*margin-bottom: 40px;*/
+}
+
+.home-header-content h4{
+    font-size: 36px;
+    margin: 0;
+    font-family: 'Montserrat', sans-serif;
+}
+
+.datting-sites{
+    max-width: 1170px;
+    padding: 15px 15px 0;
+    margin: 0 auto;
+    text-align: center;
+
+}
+
+.datting-sites h2{
+    color: #0f1d44;
+    font-size: 36px;
+    margin-top: 0;
+    margin-bottom: 30px;
+    font-weight: 600;
+}
+
+.datting-sites>p:nth-child(2){
+    color: #0f1d44;
+    font-size: 18px;
+    margin-bottom: 15px;
+}
+
+.datting-sites>p:nth-child(3){
+    margin-bottom: 25px;
+}
+
+
+.datting-sites>p{
+    color: #758696;
+    font-size: 16px;
+    line-height: 28px;
+    margin: 0;
+}
+
+.datting-sites-list-item.mobile{
+    display: none;
+}
+
+.datting-sites-list-item{
+    color: #0f1d44;
+    display: flex;
+    flex-wrap: wrap;
+    align-items: flex-end;
+    justify-content: space-between;
+    box-shadow: 0px 0px 13px rgba(118,118,118, 0.15);
+    border-radius: 4px;
+    border-left: 2px solid #f6236b;
+    text-align: left;
+    color: #0f1d44;
+    padding: 23px 30px 40px;
+    margin-bottom: 30px;
+    background: #fff;
+}
+
+
+.datting-sites-list-item:last-child{
+    margin-bottom: 0;
+}
+
+.datting-sites-list-item p{
+    margin: 0;
+}
+
+.datting-sites-list-item .description p{
+    line-height: 30px;
+}
+
+.datting-sites-list-item span{
+    color: #758696;
+}
+
+.datting-sites-list-item .mark p{
+    font-size: 48px;
+    text-align: center;
+    margin-top: 0;
+    margin-bottom: 5px;
+    font-weight: 600;
+}
+
+.datting-sites-list-item .stars{
+    display: flex;
+    justify-content: center;
+    margin: 20px 0;
+}
+.datting-sites-list-item svg{
+    width: 15px;
+    height: 15px;
+    margin: 0 3px;
+}
+
+.datting-sites-list-item .visit-site button{
+    background: none;
+    border-radius: 34px;
+    border: 1px solid #f6236b;
+    color: #f6236b;
+    font-size: 16px;
+    padding: 15px 30px;
+}
+
+.home-questions{
+    max-width: 1170px;
+    margin: 0 auto;
+    box-sizing: border-box;
+    padding: 0 15px;
+}
+
+.home-questions h3{
+    color: #0f1d44;
+    font-size: 24px;
+    text-align: center;
+    margin-top: 110px;
+    margin-bottom: 40px;
+    font-weight: 600;
+}
+
+.home-questions p{
+    color: #758696;
+    line-height: 28px;
+}
+
+p.home-questions-title{
+    color: #f9216b
+}
+
+@media screen and (max-width: 992px){
+    .home-header-content h1{
+        font-size: 36px;
+        margin-bottom: 20px;
+    }
+    .home-header-content h4{
+        font-size: 24px;
+    }
+    .datting-sites h2{
+        font-size: 24px;
+        margin-bottom: 15px;
+    }
+    .datting-sites{
+        padding-top: 40px;
+    }
+    .datting-sites>p:nth-child(2){
+        font-size: 16px;
+        margin-bottom: 30px;
+    }
+    .datting-sites>p:nth-child(3){
+        margin-bottom: 45px;
+    }
+    .datting-sites-list-item{
+        width: 600px;
+        margin: 0 auto 20px;
+    }
+    .datting-sites-list-item .mark p{
+        font-size: 36px;
+    }
+    .datting-sites-list-item .visit-site button{
+        padding: 10px 30px;
+    }
+    .home-questions h3{
+        margin-top: 50px;
+        margin-bottom: 30px;
+    }
+
+}
+
+@media screen and (max-width: 720px){
+    .datting-sites-list-item{
+        display: none;
+    }
+
+    .datting-sites-list-item.mobile{
+        width: 100%;
+        display: flex;
+        box-sizing: border-box;
+    }
+
+    .datting-sites-list-item.mobile:first-child{
+        width: 100%;
+    }
+
+    .datting-sites-list-item.mobile .description{
+        width: 100%;
+    }
+
+    .datting-sites-list-item.mobile .description p{
+        white-space: nowrap;
+        overflow: hidden;
+        text-overflow: ellipsis;
+    }
+
+}
+
+@media screen and (max-width: 480px){
+    .home-header {
+        padding: 10px 0;
+    }
+
+    .home-header-content h1{
+        font-size: 28px;
+        line-height: 42px;
+    }
+
+
+    .datting-sites-list-item{
+        padding: 15px 15px 30px;
+    }
+
+    .datting-sites-list-item .mark p{
+        font-size: 24px;
+    }
+}
+
+@media screen and (max-width: 400px){
+    .datting-sites-list-item .visit-site button{
+        padding: 10px;
+    }
+    .datting-sites-list-item .visit-site button{
+        font-size: 14px;
+    }
+    .datting-sites-list-item svg{
+        margin: 0 1px;
+    }
+}
+
+@media screen and (max-width: 340px){
+    .datting-sites-list-item{
+        padding: 10px 10px 20px;
+    }
+    .datting-sites-list-item span{
+        font-size: 14px;
+    }
+}

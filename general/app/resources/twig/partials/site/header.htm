@@ -1,0 +1,19 @@
+==
+<div class="header">
+    <a href="{{ 'home'|page }}" class="logo router-link-exact-active router-link-active">
+        <img src="{{ 'assets/images/logo/logo.png'|theme }}" alt="">
+        <img src="{{ 'assets/images/logo/logo-text.png'|theme }}" alt="">
+    </a>
+    <div class="mobile-nemu">
+        <div></div>
+        <div></div>
+        <div></div>
+    </div>
+    <nav>
+        <a href="{{ 'home'|page }}" class="router-link-exact-active router-link-active {% if this.page.id == 'home' %}active{% endif %}">Home</a>
+        <a href="{{ 'home'|page }}" class="router-link-exact-active router-link-active {% if this.page.id == 'home' %}active{% endif %}">About</a>
+        <a href="{{ 'blog'|page }}" class="{% if this.page.id == 'blog' %}active{% endif %}">Blog</a>
+        <a href="{{ 'home'|page }}" class="router-link-exact-active router-link-active {% if this.page.id == 'home' %}active{% endif %}">Option2</a>
+        <a href="{{ 'contacts'|page }}" class="router-link-exact-active router-link-active {% if this.page.id == 'contacts' %}active{% endif %}">Contacts</a>
+    </nav>
+</div>

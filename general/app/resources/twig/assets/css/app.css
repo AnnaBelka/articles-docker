@@ -1,0 +1,23 @@
+html, body{
+    margin: 0;
+    font-family: 'Open Sans', sans-serif;
+}
+
+a{
+    text-decoration: none;
+    cursor: pointer;
+}
+button{
+    outline: none;
+    font-weight: 600;
+    cursor: pointer;
+}
+p{
+    line-height: 28px;
+}
+h3, h4{
+    font-weight: 600;
+}
+h5{
+    font-weight: 400;
+}

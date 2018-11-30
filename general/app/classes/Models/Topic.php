@@ -14,5 +14,5 @@ abstract class Topic extends Model
         return $this->hasMany('Classes\Models\Article');
     }
 
-    abstract public function count(array $filter) : int;
+//    abstract public function count(array $filter) : int;
 }

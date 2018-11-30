@@ -59,16 +59,10 @@ class ArticleService extends Article
 
     public function getDateArticles() :array
     {
-
-
-       $datesArticles = Article::selectRaw("DATE_FORMAT(created_at,'%d.%m.%Y') as date")
-            ->get()
-            ->groupBy("date")
-            ->toArray();
-
-
-
-        print_r($datesArticles);
+       $datesArticles = Article::select("publish_date")->groupBy("publish_date")
+            ->get("publish_date")
+            ;
+        /*print_r($datesArticles);*/
         return $datesArticles;
     }
 

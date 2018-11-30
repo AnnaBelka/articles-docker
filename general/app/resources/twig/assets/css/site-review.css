@@ -1,0 +1,214 @@
+header{
+    background: url('../../images/bg-2.jpg');
+    background-position: center 20%;
+    position: relative;
+}
+
+header:before{
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: url('../../images/b-g3.png');
+    z-index: 1;
+    background-size: cover;
+}
+
+
+header:after{
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 40, 70, 0.75);
+}
+
+header p{
+    display: block;
+    max-width: 1170px;
+    margin: 0 auto;
+    padding: 42px 15px;
+    color: #fff;
+    position: relative;
+    z-index: 1;
+    font-family: 'Montserrat', sans-serif;
+}
+
+.main-wrapper{
+    max-width: 1170px;
+    margin: 0 auto;
+    padding: 0 15px;
+    display: flex;
+    padding-top: 100px;
+}
+
+main{
+    max-width: 750px;
+    line-height: 28px;
+}
+
+main p{
+    color: #758696;
+}
+
+main>h3{
+    color: #0f1d44;
+    font-size: 36px;
+    margin-top: 0px;
+}
+
+main img{
+    width: 100%;
+    height: auto;
+    border-radius: 14px;
+    margin: 30px 0;
+}
+
+main button{
+    display: block;
+    border: none;
+    font-size: 18px;
+    color: #fff;
+    background: #f9216b;
+    border-radius: 50px;
+    padding: 20px 48px;
+    margin: 0 auto 60px;
+}
+
+
+main>h4{
+    color: #0f1d44;
+    font-size: 24px;
+}
+
+.review-questions{
+    max-width: 1170px;
+    margin: 0 auto;
+    box-sizing: border-box;
+}
+
+.review-questions h3{
+    color: #0f1d44;
+    font-size: 24px;
+    margin-bottom: 40px;
+
+}
+
+.review-questions p{
+    color: #758696;
+    line-height: 28px;
+}
+
+p.review-questions-title{
+    color: #f9216b
+}
+
+aside{
+    padding-left: 40px;
+    padding-top: 35px;
+}
+
+aside>h4{
+    text-align: center;
+    margin: 70px 0 20px;
+}
+
+.datting-sites-list-item{
+    box-shadow: 0px 0px 13px rgba(118,118,118, 0.15);
+    border-radius: 4px;
+    border-top: 2px solid #f6236b;
+    color: #0f1d44;
+    background: #fff;
+    width: 362px;
+    padding: 0 5px 1px 5px;
+    box-sizing: border-box;
+}
+
+.datting-sites-list-item-logo{
+    width: 100%;
+    border-bottom: 1px solid #eee;
+    display: flex;
+    justify-content: center;
+    padding-top: 15px;
+}
+
+.datting-sites-list-item .mark p{
+    font-size: 48px;
+    text-align: center;
+    margin-top: 0;
+    margin-bottom: 5px;
+    font-weight: 600;
+}
+
+.datting-sites-list-item .stars{
+    display: flex;
+    justify-content: center;
+    margin: 20px 0;
+}
+.datting-sites-list-item svg{
+    width: 15px;
+    height: 15px;
+    margin: 0 3px;
+}
+
+.datting-sites-list-item-mark{
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    padding: 30px 0;
+    border-bottom: 1px solid #eee;
+}
+
+.datting-sites-list-item-mark span{
+    font-size: 12px;
+    color: #758696;
+}
+
+.datting-sites-list-button{
+    border: 1px solid #f9216b;
+    color: #f9216b;
+    font-size: 16px;
+    border-radius: 34px;
+    background: none;
+    width: 274px;
+    height: 42px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 22px auto;
+}
+
+@media screen and (max-width: 992px){
+    aside{
+        padding: 0;
+    }
+
+    header p{
+        text-align: center;
+    }
+    .main-wrapper{
+        flex-wrap: wrap;
+        justify-content: center;
+        padding-top: 40px;
+    }
+
+    main>h3{
+        font-size: 24px;
+    }
+
+    main button{
+        padding: 15px 36px;
+    }
+
+    .datting-sites-list-item{
+        width: 100%
+    }
+
+    .datting-sites-list-item-mark{
+        flex-direction: column;
+    }
+}

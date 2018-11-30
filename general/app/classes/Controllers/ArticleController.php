@@ -14,6 +14,7 @@ class ArticleController extends Controller
     private $author;
     private $topic;
     private $itemsPerPage = 20;
+    public  $twig;
 
     public function __construct()
     {
@@ -32,15 +33,21 @@ class ArticleController extends Controller
             'currentPage' => $currentPage,
             'itemsPerPage' => $this->itemsPerPage,
         ];
-    /*    $articles = $this->article->getAllArticle($filter);
+        $articles = $this->article->getAllArticle($filter);
 
         $tagsAuthors = $this->author->getAllAuthorsOrderBy('lastname', 'ASC');
         $countArticles = $this->article->getCountArticlesId('count','DESC');
-        $tagsTopics = $this->topic->getAllSortByCountArticles($countArticles);*/
-        $dateArticles = $this->article->getDateArticles();
+        $tagsTopics = $this->topic->getAllSortByCountArticles($countArticles);
+        $tagsdateArticles = $this->article->getDateArticles();
 //        var_dump($authors);
 
-        return/* $articles*/;
+        return  $this->twig->render('layots/index.html', array(
+            'articles' => $articles,
+            'tagsAuthors' => $tagsAuthors,
+            'tagsTopics' => $tagsTopics,
+            'tagsdateArticles' => $tagsdateArticles
+            )
+        );
     }
     public function getArticle(int $id)
     {

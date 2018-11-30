@@ -1,0 +1,30 @@
+title = "Blog Page"
+url = "/blog"
+layout = "app"
+is_hidden = 0
+==
+{% put styles %}
+<link href="{{ 'assets/css/blog.css'|theme }}" rel="stylesheet" />
+{% endput %}
+<div class="blog">
+    <header>
+        <p>Home > Article categories</p>
+    </header>
+
+    <div class="main-wrapper">
+        <main>
+            <h3>Article caregory overview</h3>
+            <p>Fireworks go off at the Los Angeles Memorial Coliseum, where the Rams are hosting the
+                Houston Texans for a preseason game on a blue-sky  August afternoon. Some boisterous,
+                fresh from their tailgates, hang like gargoyles over the railing above the players’ tunnel.
+                When the Rams cheerleaders trot out in diagonal lines, ready to welcome the home-team
+                starters, a ruddy-faced man wearing canary yellow Rams horns looks confused. “Who’s the
+                dude!?” he screams, sounding outraged. His friends laugh and point. </p>
+
+            <div class="articles">
+                {% partial 'site/article-item' %}
+            </div>
+        </main>
+        {% partial 'site/top-dating-sites' %}
+    </div>
+</div>

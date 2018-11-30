@@ -5,7 +5,8 @@
         "rakit/validation": "^0.22.3",
         "jasongrimes/paginator": "~1.0",
         "illuminate/database": "^5.7",
-        "illuminate/pagination": "^5.7"
+        "illuminate/pagination": "^5.7",
+        "twig/twig": "^2.0"
     },
 
     "autoload": {
