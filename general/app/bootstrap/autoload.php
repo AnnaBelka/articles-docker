@@ -10,4 +10,4 @@ $routes = include(__DIR__ .'/../config/routes.php');
 
 $route = new Routing();
 
-//$route->run($routes);
+$route->run($routes);

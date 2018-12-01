@@ -22,6 +22,17 @@ class CreateTopicsTable extends Migration
 
             $table->index('name');
         });
+
+        $query = "
+          CREATE TABLE `topics` (
+            `id` int(11) NOT NULL AUTO_INCREMENT,
+            `name` varchar(255) NOT NULL,
+            `created_at` TIMESTAMP DEFAULT NULL,
+            `updated_at` TIMESTAMP DEFAULT NULL,
+            PRIMARY KEY (`id`),
+            KEY `name` (`name`)
+          ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+        ";
     }
 
 

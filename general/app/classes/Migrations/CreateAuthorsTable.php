@@ -23,6 +23,17 @@ class CreateAuthorsTable extends Migration
 
             $table->index('lastname');
         });
+
+        $query = "
+          CREATE TABLE `authors` (
+            `id` int(11) NOT NULL AUTO_INCREMENT,
+            `name` varchar(255) NOT NULL,
+            `lastname` varchar(255) NOT NULL,
+            PRIMARY KEY (`id`),
+            KEY `lastname` (`name`)
+          ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+        ";
+
     }
 
 

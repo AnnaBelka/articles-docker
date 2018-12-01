@@ -27,8 +27,11 @@ class ArticlesTableSeeder extends Article {
                 );
                 $key = array_rand($categories);
                 $category = $categories[$key];
-
-                $dateTime = $this->faker->dateTimeThisDecade('now', null);
+                /*if ($lastid < 100000 && $i <= 1500) {
+                    $dateTime = $this->faker->dateTimeThisDecade('now', null);
+                } else {*/
+                    $dateTime = $this->faker->dateTimeThisYear('now', null);
+//                }
 
                 $title = $this->faker->realText($maxNbCharsTitle, $indexSize);
                 $description = $this->faker->realText($maxNbCharsDescription, $indexSize);

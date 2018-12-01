@@ -17,7 +17,7 @@ class Routing
     private $method;
     private $parameters;
 
-    public function __construct(){
+    /*public function __construct(){
 
         $request = Request::createFromGlobals();
 
@@ -45,7 +45,7 @@ class Routing
         // отправка ответа Response
         $response->prepare($request);
         $response->send();
-    }
+    }*/
 
 
     private function getUri()

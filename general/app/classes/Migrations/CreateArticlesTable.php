@@ -33,7 +33,7 @@ class CreateArticlesTable extends Migration
               `updated_at` TIMESTAMP DEFAULT NULL,
               PRIMARY KEY (`id`),
               KEY `tag_id` (`topic_id`),
-              KEY `tag_id` (`author_id`),
+              KEY `author_id` (`author_id`),
               KEY `publish_date` (`publish_date`)
             ) ENGINE=InnoDB DEFAULT CHARSET=utf8;";
 

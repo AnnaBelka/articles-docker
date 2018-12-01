@@ -60,7 +60,7 @@ class ArticleService extends Article
     public function getDateArticles() :array
     {
        $datesArticles = Article::select("publish_date")->groupBy("publish_date")
-            ->get("publish_date")
+            ->get("publish_date")->toArray()
             ;
         /*print_r($datesArticles);*/
         return $datesArticles;

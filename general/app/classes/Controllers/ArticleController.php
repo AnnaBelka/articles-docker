@@ -41,13 +41,13 @@ class ArticleController extends Controller
         $tagsdateArticles = $this->article->getDateArticles();
 //        var_dump($authors);
 
-        return  $this->twig->render('layots/index.html', array(
+        /*return  $this->twig->render('layots/index.html', array(
             'articles' => $articles,
             'tagsAuthors' => $tagsAuthors,
             'tagsTopics' => $tagsTopics,
             'tagsdateArticles' => $tagsdateArticles
             )
-        );
+        );*/
     }
     public function getArticle(int $id)
     {

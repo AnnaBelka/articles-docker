@@ -5,6 +5,7 @@ namespace Classes\Migrations;
 use Classes\Controllers\Controller;
 use Classes\Migrations\Seeders\ArticlesTableSeeder;
 
+use Classes\Migrations\Seeders\AuthorsTableSeeder;
 use Classes\Migrations\Seeders\TopicsTableSeeder;
 use Faker\Factory;
 
@@ -22,8 +23,8 @@ class GenerationDump extends Controller
     public function index()
     {
 
-        $seederTopics = new TopicsTableSeeder();
-        $seederTopics->run();
+        /*$seederTopics = new TopicsTableSeeder();
+        $seederTopics->run();*/
         /*$seederAuthors = new AuthorsTableSeeder();
         $seederAuthors->run();*/
         $seederAuthors = new ArticlesTableSeeder();
