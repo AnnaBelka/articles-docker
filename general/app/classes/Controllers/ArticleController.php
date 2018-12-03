@@ -39,7 +39,6 @@ class ArticleController extends Controller
         $countArticles = $this->article->getCountArticlesId('count','DESC');
         $tagsTopics = $this->topic->getAllSortByCountArticles($countArticles);
         $tagsdateArticles = $this->article->getDateArticles();
-//        var_dump($authors);
 
         /*return  $this->twig->render('layots/index.html', array(
             'articles' => $articles,
