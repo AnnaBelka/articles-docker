@@ -1,12 +1,17 @@
 <?php
 
 namespace Classes\Components;
+use Symfony\Component\Config\FileLocator;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
+use Symfony\Component\Routing\Exception\ResourceNotFoundException;
+use Symfony\Component\Routing\Generator\UrlGenerator;
 use Symfony\Component\Routing\Matcher\UrlMatcher;
 use Symfony\Component\Routing\RequestContext;
 use Symfony\Component\Routing\RouteCollection;
 use Symfony\Component\Routing\Route;
+use Symfony\Component\Routing\Loader\YamlFileLoader;
+use Symfony\Component\Routing\Router;
 
 class Routing
 {
@@ -17,10 +22,63 @@ class Routing
     private $method;
     private $parameters;
 
-    public function __construct(){
+    public function __construct()
+    {
+        try
+        {
+            // Load routes from the yaml file
+            $configDirectories = array(__DIR__.'/../../config');
+            $fileLocator = new FileLocator($configDirectories);
+            /*$loader = new YamlFileLoader($fileLocator);
+            $routes = $loader->load('routes.yaml');*/
+
+            // Init RequestContext object
+            $context = new RequestContext();
+            $context->fromRequest(Request::createFromGlobals());
+
+            $router = new Router(
+                new YamlFileLoader($fileLocator),
+                'routes.yaml',
+                array('cache_dir' => __DIR__.'/cache'),
+                $context
+            );
+
+
+            // Find the current route
+            $parameters = $router->match($context->getPathInfo());
+
+            // How to generate a SEO URL
+            $routes = $router->getRouteCollection();
+
+          /*
+            // Init UrlMatcher object
+            $matcher = new UrlMatcher($routes, $context);
+
+            // Find the current route
+            $parameters = $matcher->match($context->getPathInfo());*/
+
+            // How to generate a SEO URL
+           /* $generator = new UrlGenerator($routes, $context);
+            $url = $generator->generate('foo_placeholder_route', array(
+                'id' => 123,
+            ));*/
+
+            echo '<pre>';
+            print_r($parameters);
+
+        }
+        catch (ResourceNotFoundException $e) {
+            echo $e->getMessage();
+        }
+
+
 
         $request = Request::createFromGlobals();
+        $configDirectories = array(__DIR__.'/../../config');
 
+        $fileLocator = new FileLocator($configDirectories);
+
+        $yamlUserFiles = $fileLocator->locate('routes.yaml', null, false);
 //        var_dump($request);
 
         $routes = new AdvancedLoader();

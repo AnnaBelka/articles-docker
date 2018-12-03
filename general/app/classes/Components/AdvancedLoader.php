@@ -13,24 +13,12 @@ class AdvancedLoader extends Loader
     {
 
 
-        $configDirectories = array(realpath(__DIR__.'/../../config'));
-        $configValues = Yaml::parse(file_get_contents($configDirectories));
-        var_dump($configValues);
-
-
-        $fileLocator = new FileLocator($configDirectories);
-        $yamlRoutesFiles = $fileLocator->locate('routes.yaml', null, false);
-        var_dump($yamlRoutesFiles);
-
         $routes = new RouteCollection();
-/*
-        $resource = '../config/routes.yaml';
-        $type = 'yaml';*/
 
         $importedRoutes = $this->import($resource, $type);
-var_dump($importedRoutes);
+
         $routes->addCollection($importedRoutes);
-        var_dump($routes);
+
         return $routes;
     }
 
